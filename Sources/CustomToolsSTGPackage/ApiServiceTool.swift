@@ -6,6 +6,8 @@
 //  Copyright © 2021 Jorge GA-studiogenesis. All rights reserved.
 //
 
+import Foundation
+
 public enum HttpMethodType: String {
     case get = "GET"
     case post = "POST"

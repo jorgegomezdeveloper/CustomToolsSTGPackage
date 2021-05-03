@@ -20,13 +20,17 @@ public class PermissionTools {
     // MARK: NOTIFICATIONS PERMISSION STATUS
     public func checkNotificationPermission(completion: @escaping (Bool) -> ()) {
         
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            
-            if settings.authorizationStatus == .authorized {
-                completion(true)
-            } else {
-                completion(false)
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+                
+                if settings.authorizationStatus == .authorized {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
             }
+        } else {
+            // Fallback on earlier versions
         }
     }
     

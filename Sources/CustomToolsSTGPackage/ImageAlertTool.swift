@@ -28,6 +28,7 @@ public class ImageAlertTool {
     }
     
     
+    @available(iOS 13.0, *)
     public func loadImageAsync(url: String, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
         guard !isImageAlertToolOpened else { return }
@@ -62,6 +63,7 @@ public class ImageAlertTool {
         }).resume()
     }
     
+    @available(iOS 13.0, *)
     public func loadImageFromAssets(image: UIImage?, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
         guard !isImageAlertToolOpened else { return }
@@ -81,6 +83,7 @@ public class ImageAlertTool {
         }
     }
     
+    @available(iOS 13.0, *)
     private func loadImageActions(image: UIImage, gestureOptions: ImageTools.GestureOptions, completion: @escaping (Bool) -> ()) {
         
         let keyWindow = UIApplication.shared.connectedScenes

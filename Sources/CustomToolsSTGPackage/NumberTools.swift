@@ -6,6 +6,8 @@
 //  Copyright © 2021 Jorge GA-studiogenesis. All rights reserved.
 //
 
+import Foundation
+
 extension Int {
     
     // check if pair number

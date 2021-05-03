@@ -50,7 +50,11 @@ public class AddressTools {
                 return
             }
             
-            UIApplication.shared.open(address)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(address)
+            } else {
+                // Fallback on earlier versions
+            }
             completion(true)
             
             break
@@ -63,7 +67,11 @@ public class AddressTools {
                     let query = "?ll=\(location!.latitude),\(location!.longitude)"
                     let path = "http://maps.apple.com/" + query
                     if let url = URL(string: path) {
-                        UIApplication.shared.open(url)
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(url)
+                        } else {
+                            // Fallback on earlier versions
+                        }
                         completion(true)
                         
                     } else {

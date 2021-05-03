@@ -26,6 +26,7 @@ public class DeviceTools {
         return Bundle.main.infoDictionary!["CFBundleVersion"] as? String ?? ""
     }
     
+    @available(iOS 10.0, *)
     public func openAppSystemConfiguration() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!, options: [:], completionHandler: nil)
     }
@@ -252,9 +253,12 @@ public extension UIDevice {
 extension UIViewController {
 
     /**
-     *  Height of status bar + navigation bar (if navigation bar exist)
+     *  Height of status bar + navigation bar (if navigat@available(iOS 13.0, *)
+     @available(iOS 13.0, *)
+     ion bar exist)
      */
 
+    @available(iOS 13.0, *)
     public var topbarHeight: CGFloat {
         
         let height = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -263,6 +267,7 @@ extension UIViewController {
 }
 
 extension UIDevice {
+    @available(iOS 13.0, *)
     public var hasNotch: Bool {
         
         let keyWindow = UIApplication.shared.connectedScenes

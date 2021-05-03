@@ -20,7 +20,11 @@ extension String {
     public func openEmail() {
         if self.isValidEmail() {
             if let url = URL(string: "mailto:\(self)") {
-                UIApplication.shared.open(url)
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    // Fallback on earlier versions
+                }
             }
         }
     }

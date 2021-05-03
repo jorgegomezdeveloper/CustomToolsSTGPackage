@@ -125,6 +125,7 @@ public class TextFieldContainerValuesTool: UIViewController {
         }
     }
 
+    @available(iOS 13.0, *)
     private func showContainerData() {
 
         // Initial control to not duplicate alerts
@@ -529,7 +530,11 @@ extension TextFieldContainerValuesTool: UITextFieldDelegate {
 
         print("textFieldDidBeginEditing")
         self.textFieldObservers?.createObservers()
-        self.showContainerData()
+        if #available(iOS 13.0, *) {
+            self.showContainerData()
+        } else {
+            // Fallback on earlier versions
+        }
         self.startAnimationView()
     }
 

@@ -115,13 +115,17 @@ public class MapTools {
         }
         
         if activeCluster! {
-            if let cluster = annotation as? MKClusterAnnotation {
-                var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
-                if annotationView == nil {
-                    annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
+            if #available(iOS 11.0, *) {
+                if let cluster = annotation as? MKClusterAnnotation {
+                    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: clusterId) as? MKMarkerAnnotationView
+                    if annotationView == nil {
+                        annotationView = MKMarkerAnnotationView(annotation: nil, reuseIdentifier: clusterId)
+                    }
+                    annotationView?.annotation = cluster
+                    return annotationView
                 }
-                annotationView?.annotation = cluster
-                return annotationView
+            } else {
+                // Fallback on earlier versions
             }
         }
         
@@ -135,7 +139,11 @@ public class MapTools {
         }
         
         if activeCluster! {
-            anView?.clusteringIdentifier = clusterId
+            if #available(iOS 11.0, *) {
+                anView?.clusteringIdentifier = clusterId
+            } else {
+                // Fallback on earlier versions
+            }
         }
         
         let cpa = annotation as! CustomPointAnnotation

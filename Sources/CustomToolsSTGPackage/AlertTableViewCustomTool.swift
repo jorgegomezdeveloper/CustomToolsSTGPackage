@@ -49,6 +49,7 @@ public class AlertTableViewCustomTool: UIViewController {
     var cellSeparatorColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     // MARK: START METHODS
+    @available(iOS 13.0, *)
     public func show(delegate: AlertTableViewCustomToolProtocol, data: [Any], title: String?, message: String?, customImage: UIImage?, imageHeight: CGFloat = 80, imageWidth: CGFloat = 80, typeFormatViews: ButtonsFormatType = .stickedDown, topCloseButtonImage: UIImage? = nil, tableViewHeightValue: CGFloat = 150, cellHeightValue: CGFloat = 50, isActiveAcceptButton: Bool = false, addWhiteSpaceBottomMessage: Bool = false, cellBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), cellTextColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), cellSeparatorColor: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.25)) {
         
         // Initial control to not duplicate alerts

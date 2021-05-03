@@ -60,6 +60,7 @@ public class CalendarKoyomiTool {
     public init() {
     }
     
+    @available(iOS 13.0, *)
     public func show(delegate: UIViewController, firstDayType: FirstDayType, selectionMode: SelectionMode? = nil, confirmSelection: Bool = false, calendarStyle: KoyomiStyle = .standard, title: String? = nil, activateCancelButton: Bool = false, typeFormatButtons: ButtonsFormatType = .withConstraints, calendarLanguage: Locale!, calendarSelectCurrentDay: Bool = true, shortedString: DateTools.DayShortedString = .three, cacapitalizeDays: CapitalizeString = .none) {
         
         guard !isCalendarKoyomiToolOpened else {
