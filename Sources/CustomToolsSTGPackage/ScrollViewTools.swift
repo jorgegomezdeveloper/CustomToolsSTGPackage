@@ -1,6 +1,6 @@
 //
 //  ScrollViewTools.swift
-//  CustomToolsStudiogenesis
+//  CustomToolsSTGPackage
 //
 //  Created by David SG on 28/07/2020.
 //  Copyright © 2020 David Galán. All rights reserved.
