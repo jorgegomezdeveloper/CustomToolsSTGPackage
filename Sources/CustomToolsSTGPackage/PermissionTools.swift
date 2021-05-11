@@ -65,11 +65,11 @@ public class PermissionTools {
     public func checkMicrophonePermission(completionStatus: @escaping (MicrophonePermissionStatus) -> ()) {
         
         switch AVAudioSession.sharedInstance().recordPermission {
-        case AVAudioSessionRecordPermission.granted:
+        case AVAudioSession.RecordPermission.granted:
             completionStatus(.granted)
-        case AVAudioSessionRecordPermission.denied:
+        case AVAudioSession.RecordPermission.denied:
             completionStatus(.denied)
-        case AVAudioSessionRecordPermission.undetermined:
+        case AVAudioSession.RecordPermission.undetermined:
             
             self.askMicrophonePermission { (granted) in
                 
